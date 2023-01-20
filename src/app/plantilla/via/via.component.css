@@ -1,0 +1,10 @@
+.img-via {
+    background-image: url('../../../assets/images/via.png');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 110px;
+    position: absolute;
+    bottom: 0px;
+}

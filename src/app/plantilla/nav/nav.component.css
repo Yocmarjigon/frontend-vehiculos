@@ -1,0 +1,75 @@
+
+
+.container-inicio{
+    display: none;
+}
+
+.panel-nav{
+    background-color: #262626;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    height: 60px;
+
+}
+
+.activo{
+    background-color: #F9A825;
+    color: #F9A825;
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+}
+
+.panel-final{
+    justify-self: flex-end;
+}
+
+.header{
+    height: 100%;
+    display: inline-block;
+}
+nav{
+    height: 100%;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    height: 100%;
+}
+
+.panel-final{
+    display: flex;
+}
+li{
+   width: 110px; 
+   height: 100%;
+   text-align: center;
+}
+li a{
+    color: #fff;
+    text-align: center;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+}
+.panel-final a{
+    background-color: #F9A825;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+}
+.btn-cuenta, .btn-cerrar-sesion {
+    width: 30px;
+}
+
+
