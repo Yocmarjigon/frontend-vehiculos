@@ -1,0 +1,23 @@
+<div class="container-conductor">
+
+<table class="tabla">
+  <thead>
+    <tr>
+      <th>Nombre apellido</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Rol</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{ usuario.nombre_apellido}}</td>
+      <td>{{ usuario.email }}</td>
+      <td>{{usuario.telefono}}</td>
+      <td>{{usuario.rol}}</td>
+      <td class="acciones"><button>Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

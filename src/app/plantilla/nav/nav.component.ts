@@ -16,6 +16,7 @@ export class NavComponent implements OnInit {
   constructor(private rendere2:Renderer2, private router: Router,){
 
   }
+
   ngOnInit(): void {
     console.log()
   }

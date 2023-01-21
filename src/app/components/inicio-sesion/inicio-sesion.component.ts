@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-inicio-sesion',
@@ -7,6 +7,13 @@ import { RouterLinkActive } from '@angular/router';
 })
 
 
-export class InicioSesionComponent {
+export class InicioSesionComponent implements OnInit {
+  
+  cosntructor(){
+  }
+
+  ngOnInit(): void {
+    
+  }
 
 }

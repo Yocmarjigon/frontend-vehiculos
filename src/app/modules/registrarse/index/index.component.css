@@ -26,9 +26,17 @@ h1{
     justify-content: space-around;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.477);
 }
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
 h3{
     align-self: flex-start;
+    color: #fff;
+    margin-bottom: 30px;
     
 }
 
@@ -51,13 +59,17 @@ input{
     width: 100%;
     color: #fff;
     border-bottom: 2px solid #fff;
+    background-color: #262626;
     font-weight: 300;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    outline: none;
+    height: 30px;
+    
 }
 
-.btn-iniciar{
+.btn-registrarse{
     width: 95%;
     height: 40px;
     border: none;
@@ -68,6 +80,7 @@ input{
     text-align: center;
     padding: 10px;
     font-weight: 800;
+    cursor: pointer;
 
 }
 .btn-iniciar:hover{
