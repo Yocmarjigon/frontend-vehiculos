@@ -14,6 +14,6 @@ export class IndexComponent implements OnInit {
   {}
 
   ngOnInit(): void {
-   this.usuariosServices.obtenerUsuarios().subscribe(usuarios => this.usuarios = usuarios) 
+   this.usuariosServices.obtenerUsuarios().subscribe(datos => this.usuarios = datos) 
   }
 }

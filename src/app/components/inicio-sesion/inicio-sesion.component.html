@@ -3,15 +3,16 @@
     <h1>SAV</h1>
     <div class="panel-iniciar">
         <h3>Iniciar sesion</h3>
-        <input class="input-email" type="text" placeholder="Email">
-        <input class="input-password" type="text" placeholder="Password">
-        <select class="input-tipo">Tipo<i class="fa-solid fa-caret-down"></i>
-            <option selected>Conductor</option>
-            <option>Gerente</option>
-            <option>Admin</option>
+        <input [(ngModel)]="email" class="input-email" type="text" placeholder="Email">
+        <input [(ngModel)]="password" class="input-password" type="password" placeholder="Password">
+        <select [(ngModel)]="rol" class="input-tipo">Tipo<i class="fa-solid fa-caret-down"></i>
+            <option [ngValue]="'conductor'" >Conductor</option>
+            <option [ngValue]="'gerente'" >Gerente</option>
+            <option  [ngValue]="'admin'" >Admin</option>
         </select>
-        <a routerLink="/inicio" class="btn-iniciar"  >INICIAR</a>
+        <button (click)="iniciarSesion()" class="btn-iniciar"  >INICIAR</button>
     </div>
-    <a class="btn-register" routerLink="/register" >Registrarse</a>
+    <a class="btn-register" routerLink="/register">Registrarse</a>
+    
 </div>
 

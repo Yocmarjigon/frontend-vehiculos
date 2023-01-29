@@ -4,6 +4,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from '../../../models/Usuario';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./index.component.css'],
 })
 export class IndexComponent {
+  id_usuarios: string = '';
   nombre_apellido: string = '';
   email: string = '';
   telefono: string = '';
@@ -37,19 +39,21 @@ export class IndexComponent {
     }
 
     const usuario: Usuario ={
+      id_usuarios: this.id_usuarios,
       nombre_apellido: this.nombre_apellido,
       email: this.email,
       telefono: this.telefono,
       password: this.password,
-      rol: this.rol
+      rol: 'admin'
     }
 
-    this.usuarioServices.registrarUsuarios(usuario).subscribe(u => {
-      this.toastr.success('El usuario fue creado correctamente', 'OK')
-      this.router.navigate(['/iniciar-sesion'])
+    this.usuarioServices.registrarUsuarios(usuario).subscribe({
+      next: () => {this.toastr.success('El usuario fue creado correctamente', 'OK'),
+      this.router.navigate(['/iniciar-sesion'])},
+      error:(error: HttpErrorResponse) =>{this.toastr.error(`${error.error.text}`), console.log(error.error.text)}
     })
 
-    console.log(usuario)
+    
 
   }
 }

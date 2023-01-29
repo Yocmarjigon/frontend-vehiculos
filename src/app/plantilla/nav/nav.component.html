@@ -1,21 +1,22 @@
-<div  class="container-inicio"  >
-    <div #asNav class="panel-nav">
+<div #asNav >
+    <div  class="panel-nav">
       <img class="logo" src="../../../../assets/images/logo.png" alt="logo" />
       <header class="header">
         <nav>
           <ul>
             <li><a routerLink='/inicio' routerLinkActive="activo" >Inicio</a></li>
             <li><a routerLink="/usuario" routerLinkActive="activo" >Usuarios</a></li>
-            <li><a>Conductores</a></li>
-            <li><a>Vehiculos</a></li>
+            <li><a routerLink="/conductor" routerLinkActive="activo" >Conductores</a></li>
+            <li><a>Vehículos</a></li>
           </ul>
         </nav>
       </header>
       <div class="panel-final">
+        <h4>{{nombreUsuario}}</h4>
         <a 
           ><img class="btn-cuenta" src="../../../../assets/images/administrador.png" alt="cuanta"
         /></a>
-        <a routerLink="/iniciar-sesion"  class="activo" routerLinkActive="iniciar" ><img class="btn-cerrar-sesion" src="../../../../assets/images/cerrar-sesion.png" alt=""></a>
+        <button   class="btn-cerrar-sesion"  (click)="cerrarSesion()" >X</button>
       </div>
     </div>
   </div>

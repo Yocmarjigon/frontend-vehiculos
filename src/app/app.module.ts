@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
@@ -11,10 +11,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SpinnersAngularModule } from 'spinners-angular';
+import { AddTokenInterceptor } from './utils/add-token.interceptor';
 
 @NgModule({
   declarations: [AppComponent, InicioSesionComponent, NavComponent],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
+    SpinnersAngularModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',

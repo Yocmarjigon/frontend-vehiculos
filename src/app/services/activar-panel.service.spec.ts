@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UsuariosService } from './usuarios.service';
+import { ActivarPanelService } from './activar-panel.service';
 
-describe('UsuariosService', () => {
-  let service: UsuariosService;
+describe('ActivarPanelService', () => {
+  let service: ActivarPanelService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UsuariosService);
+    service = TestBed.inject(ActivarPanelService);
   });
 
   it('should be created', () => {

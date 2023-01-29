@@ -1,4 +1,5 @@
 export interface Usuario {
+    id_usuarios?: string;
     nombre_apellido?: string;
     email?: string;
     telefono?: string;
