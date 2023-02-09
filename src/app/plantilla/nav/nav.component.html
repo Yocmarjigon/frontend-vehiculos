@@ -7,17 +7,20 @@
             <li><a routerLink='/inicio' routerLinkActive="activo" >Inicio</a></li>
             <li><a routerLink="/usuario" routerLinkActive="activo" >Usuarios</a></li>
             <li><a routerLink="/conductor" routerLinkActive="activo" >Conductores</a></li>
+            <li><a routerLink="/gerente" routerLinkActive="activo" >Gerente</a></li>
             <li><a>Vehículos</a></li>
           </ul>
         </nav>
       </header>
       <div class="panel-final">
-        <h4>{{nombreUsuario}}</h4>
-        <a 
-          ><img class="btn-cuenta" src="../../../../assets/images/administrador.png" alt="cuanta"
-        /></a>
+        <a routerLink="/detalles-usuario">
+          <img *ngIf="rol == 'admin'" class="btn-cuenta" src="../../../../assets/images/administrador.png" alt="admin"/>
+          <img *ngIf="rol == 'conductor'" class="btn-cuenta" src="../../../../src/assets/images/conductor.png" alt="conductor"/>
+          <img *ngIf="rol == 'gerente'" class="btn-cuenta" src="../../../../src/assets/images/gerente.png" alt="gerente"/>
+        </a>
         <button   class="btn-cerrar-sesion"  (click)="cerrarSesion()" >X</button>
       </div>
     </div>
   </div>
+
   

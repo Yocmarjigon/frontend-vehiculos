@@ -1,0 +1,83 @@
+<div #asCrearConductor class="container-crear-conductor">
+    <div class="panel-iniciar">
+      <form autocomplete="off" enctype="multipart/form-data">
+        <h3>Editar conductor</h3>
+        <div class="container-inputs">
+        <input
+          [(ngModel)]="cedula"
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          placeholder="Cedula"
+        />
+        <input
+          [(ngModel)]="nombre_apellido"
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          placeholder="Nombre apellido"
+        />
+        <input
+          [(ngModel)]="email"
+          [ngModelOptions]="{ standalone: true }"
+          type="email"
+          placeholder="Email"
+        />
+        <input
+          [(ngModel)]="licencia"
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          placeholder="N. Licencia"
+        />
+        <input
+          type="text"
+          [(ngModel)]="categoria"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Categoria"
+        />
+        <input
+          type="file"
+          (change)="capturaPdf($event)"
+          placeholder="Categoria"
+          accept="file/*,.pdf"
+        />
+        <div class="container-fechas">
+          <label for="fecha_exp">
+            Fecha Exp
+            <input
+              [(ngModel)]="licencia_exp"
+              [ngModelOptions]="{ standalone: true }"
+              type="date"
+              id="fecha_exp"
+              class="inputs-fechas"
+            />
+          </label>
+  
+          <label for="fecha_venc">
+            Fecha Venc
+            <input
+              [(ngModel)]="licencia_venc"
+              [ngModelOptions]="{ standalone: true }"
+              type="date"
+              id="fecha_venc"
+              class="inputs-fechas"
+            />
+          </label>
+        </div>
+        <input
+          [(ngModel)]="password"
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          placeholder="Password"
+        />
+        <input
+          [(ngModel)]="passwordRepetida"
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          placeholder="Repetir password"
+        />
+      </div>
+        <button class="btn-registrarse" (click)="actualizandoConductor()">CREAR</button>
+      </form>
+    </div>
+    <button class="btn-cerrar" (click)="cerrarPanel()">Cerrar</button>
+  </div>
+  

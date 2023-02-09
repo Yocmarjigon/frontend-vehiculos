@@ -18,6 +18,7 @@ export class IndexComponent {
   email: string = '';
   telefono: string = '';
   password: string = '';
+  repetirPassword: string = ''
   rol: string = '';
  
 
@@ -33,8 +34,13 @@ export class IndexComponent {
    
   creaUsuario(){
 
-    if (this.nombre_apellido === '' || this.email === '' || this.telefono === '' || this.password === '' || this.rol === ''){
+    if (this.nombre_apellido === '' || this.email === '' || this.telefono === '' || this.password === '' ){
       this.toastr.error('Todos los campos son obligatorios', 'Error');
+      return;
+    }
+
+    if (this.password != this.repetirPassword){
+      this.toastr.error('Las password son diferentes', 'Error');
       return;
     }
 

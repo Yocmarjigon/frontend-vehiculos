@@ -1,0 +1,16 @@
+<div class="container-panel-usuarios">
+    <div class="panel-detalles">
+      <h2>Detalles</h2>
+      <ul>
+          <li>Nombre apellido: <span>{{nombre_apellido}}</span></li>
+          <li>Email: <span>{{email}}</span></li>
+          <li>Cédula: <span>{{cedula}}</span></li>
+          <li>Licencia: <span>{{licencia}}</span></li>
+          <li>Categoría: {{categoria}}</li>
+          <li>Licencia Exp: <span>{{licencia_exp}}</span></li>
+          <li>Licencia Venc: <span>{{licencia_venc}}</span></li>
+          <a href={{enlace}} target="_blank"><img src="../../../../assets/images/pdf.png" alt="pdf"></a>
+      </ul>
+    </div>
+      <button class="btn-cerrar" (click)="cerrarPanel()">cerrar</button>
+  </div>

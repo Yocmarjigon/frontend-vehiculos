@@ -6,6 +6,9 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 export class ActivarPanelService {
   constructor() { }
 
-  $panel = new EventEmitter<any>();
+  $activarPanelCrear = new EventEmitter<any>();
+  $activarPanelDetalles = new EventEmitter<any>();
+  $activarPanelEditar = new EventEmitter<any>();
   $panelNav = new EventEmitter<any>();
+  $enviarId = new EventEmitter<any>();
 }

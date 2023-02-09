@@ -1,12 +1,15 @@
 export interface Conductor {
-    id_conductor?: string;
-    id_usuario?: string;
+    id_conductor?: number;
+    id_usuarios?: string;
     cedula?: string;
+    email?: string;
     nombre_apellido?: string;
+    password?: string;
     licencia?: string;
+    pdf_licencia?:string;
     licencia_exp?: Date;
     licencia_venc?: Date;
-    estado: number;
+    estado?: number[];
     categoria?: string
 
 }

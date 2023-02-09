@@ -1,13 +1,11 @@
 .container-conductor{
-    padding: 80px 20px;
+    padding: 40px 20px;
 }
 
 .panel-btn{
     align-self: flex-start;
     display: flex;
-    
     align-items: center;
-    width: 100%;
 }
 
 .tabla{
@@ -15,6 +13,7 @@
     min-width: 1120px;
     max-height: 400px;
     border-collapse: collapse;
+
     
 }
 
@@ -29,10 +28,38 @@
     width: 120px;
     margin: 10px;
     background-color: #28BA56;
+    box-shadow: 2px 2px 2px #26262663;
+}
+
+.filter-input{
+    width: 700px;
+    height: 30px;
+    border: none;
+    border-bottom: 0.5px solid #262626;
+    outline: none;
 }
 
 .panel-opciones{
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.paginacion ::ng-deep .ngx-pagination .current {
+    background-color: #F9A825;
+    color: #fff;
+    
+}
+
+.paginacion ::ng-deep .ngx-pagination  {
+    border: 1px solid #262626;
+    color: #F9A825;
+    margin: 0px;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    
+
+}
+
+

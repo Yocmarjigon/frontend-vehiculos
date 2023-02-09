@@ -8,7 +8,7 @@ import { Usuario } from '../models/Usuario';
   providedIn: 'root'
 })
 export class UsuariosService {
-  url = 'http://localhost:3002';
+  url = 'http://localhost:3006';
   
   constructor(private http: HttpClient) {
   }
@@ -18,6 +18,9 @@ export class UsuariosService {
     
 
   }
+  obtenerUsuario(id: string):Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.url}/usuario/${id}`)
+  }
 
   registrarUsuarios(usuario:Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(`${this.url}/usuario`, usuario)
@@ -25,5 +28,13 @@ export class UsuariosService {
 
   iniciarSesion(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(`${this.url}/autentificacion/login`, usuario);
+  }
+
+  actualizarUsuario(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.url}/conductor/${usuario.id_usuarios}`, usuario)
+  }
+
+  eliminarUsuario(usuario: Usuario):Observable<Usuario>{
+    return this.http.delete<Usuario>(`${this.url}/usuario/${usuario.id_usuarios}`)
   }
 }

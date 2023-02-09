@@ -45,7 +45,7 @@ export class InicioSesionComponent implements OnInit {
         const token = datos.toString()
         this.activarServices.$panelNav.emit(true)
         localStorage.setItem('token', token)},
-      error:(error: HttpErrorResponse) =>{this.toastr.error(`${error.error.msg}`)
+      error:(error: HttpErrorResponse) =>{console.log(error.error)
     }});
 
   };

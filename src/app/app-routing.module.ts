@@ -10,7 +10,9 @@ const routes: Routes =
   {path: 'inicio', loadChildren: ()=> import('./modules/inicio/inicio.module').then(m => m.InicioModule),  canActivate: [AutenticacionGuard]},
   {path: 'register', loadChildren: ()=> import('./modules/registrarse/registrarse.module').then(m => m.RegistrarseModule)},
   {path: 'usuario', loadChildren: ()=> import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule), canActivate: [AutenticacionGuard]},
-  {path: 'conductor', loadChildren: ()=> import('./modules/conductor/conductor.module').then(m => m.ConductorModule),  canActivate: [AutenticacionGuard]}
+  {path: 'conductor', loadChildren: ()=> import('./modules/conductor/conductor.module').then(m => m.ConductorModule),  canActivate: [AutenticacionGuard]},
+  {path: 'gerente', loadChildren: ()=> import('./modules/gerente/gerente.module').then(m => m.GerenteModule),  canActivate: [AutenticacionGuard]},
+  {path: 'detalles-usuario', loadChildren: ()=> import('./plantilla/panel-usuario/panel-usuario.module').then(m => m.PanelUsuarioModule),  canActivate: [AutenticacionGuard]}
 ];
 
 @NgModule({
