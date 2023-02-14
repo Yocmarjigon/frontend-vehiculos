@@ -1,0 +1,17 @@
+.container-error-pagina{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+h1{
+   color: #F33A36; 
+   font-size: 5em;
+}
+
+p{
+    font-size: 1.5em;
+}

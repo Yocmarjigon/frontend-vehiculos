@@ -38,7 +38,7 @@
         <td>{{ conductor.categoria }}</td>
         <td class="acciones">
           <button class="btn-acciones btn-eliminar" (click)="eliminandoConductor(conductor)">Eliminar</button
-          ><button class="btn-acciones btn-editar"(click)="abrirEditar()" >Editar</button
+          ><button class="btn-acciones btn-editar"(click)="abrirEditar(conductor.id_conductor)" >Editar</button
           ><button class="btn-acciones btn-detalles" (click)="abrirDetalles(conductor.id_conductor)">Detalles</button>
         </td>
       </tr>
@@ -61,5 +61,5 @@
   <app-detalles [idConductor]="idEnv"></app-detalles>
 </div>
 <div *ngIf="activarEditar == true">
-  <app-editar></app-editar>
+  <app-editar [idConductor]="idEnv"></app-editar>
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivarPanelService } from 'src/app/services/activar-panel.service';
+import { ConductorService } from 'src/app/services/conductor.service';
 
 @Component({
   selector: 'app-editar',
@@ -20,15 +21,30 @@ export class EditarComponent  implements OnInit {
   passwordRepetida = ''
 
   fileTamp:any;
-
+  @Input() idConductor:string = '';
   constructor(
-    private actigarServices: ActivarPanelService
+    private actigarServices: ActivarPanelService,
+    private conductorServices: ConductorService
     ){
   }
 
   ngOnInit(): void {
-  
+    this.cargarConductor()
     
+  }
+
+
+  cargarConductor ()  {
+    this.conductorServices.mostrarConductor(this.idConductor).subscribe(valor =>{
+      this.cedula = valor.cedula!
+      this.email = valor.email!
+      this.nombre_apellido = valor.nombre_apellido!
+      this.licencia = valor.licencia!
+      this.categoria = valor.categoria!;
+      this.licencia_exp = valor.licencia_exp?.toString()!
+      this.licencia_venc = valor.licencia_venc?.toString()!
+      this.password = valor.password!
+    })
   }
 
   capturaPdf($event:any){

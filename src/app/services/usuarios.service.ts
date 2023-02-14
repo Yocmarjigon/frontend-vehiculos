@@ -8,7 +8,7 @@ import { Usuario } from '../models/Usuario';
   providedIn: 'root'
 })
 export class UsuariosService {
-  url = 'http://localhost:3006';
+  url = env.endpoint;
   
   constructor(private http: HttpClient) {
   }

@@ -1,1 +1,56 @@
-<p>index works!</p>
+<div class="container-conductor">
+    <div class="panel-opciones">
+      <div class="panel-btn">
+        <button #asButton class="btn-crear" (click)="abrirCrear()">Crear</button>
+      </div>
+      <div class="contenedor-filtrar">
+        <input class="filter-input" placeholder="Filtrar:"  [(ngModel)]="searchText" autocomplete="on" type="text">
+      </div>
+    </div>
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Nombre apellido</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="tabla-contenido"
+          *ngFor="
+            let gerente of gerentes
+              | paginate : { itemsPerPage: 8, currentPage: p } |  filter:searchText"  
+        >
+        <td>{{ gerente.nombre_apellido}}</td>
+        <td>{{ gerente.email }}</td>
+        <td>{{gerente.telefono}}</td>
+        <td>{{gerente.rol}}</td>
+          <td class="acciones">
+            <button class="btn-acciones btn-eliminar" (click)="eliminandoGerente(gerente)">Eliminar</button
+            ><button class="btn-acciones btn-editar"(click)="abrirEditar(gerente.id_gerente)" >Editar</button
+            ><button class="btn-acciones btn-detalles" (click)="abrirDetalles(gerente.id_gerente)">Detalles</button>
+          </td>
+        </tr>
+        <pagination-controls
+          class="paginacion"
+          (pageChange)="p = $event"
+          nextLabel="Next"
+          previousLabel="Previous"
+          screenReaderPaginationLabel="Pagination"
+          [maxSize]= "10"
+        ></pagination-controls>
+      </tbody>
+    </table>
+  </div>
+  <!-- <div *ngIf="activarCrear == true">
+    <app-crear></app-crear>
+  </div>
+  <div *ngIf="activarDetalles == true">
+    <app-detalles [idConductor]="idEnv"></app-detalles>
+  </div>
+  <div *ngIf="activarEditar == true">
+    <app-editar [idConductor]="idEnv"></app-editar>
+  </div> --> -->

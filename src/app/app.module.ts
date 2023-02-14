@@ -14,10 +14,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { SpinnersAngularModule } from 'spinners-angular';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
 import { FiltrarPipe } from './pipes/filtrar.pipe';
+import { ErrorPaginaComponent } from './components/error-pagina/error-pagina.component';
 
 
 @NgModule({
-  declarations: [AppComponent, InicioSesionComponent, NavComponent],
+  declarations: [AppComponent, InicioSesionComponent, NavComponent, ErrorPaginaComponent],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}],
   bootstrap: [AppComponent],
   imports: [

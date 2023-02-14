@@ -21,8 +21,9 @@
 }
 
 .activo{
-    background-color: #F9A825;
+    border-bottom: 4px solid #F9A825;
     color: #F9A825;
+
 }
 
 .logo{

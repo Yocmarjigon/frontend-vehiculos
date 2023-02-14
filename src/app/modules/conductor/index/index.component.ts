@@ -142,7 +142,9 @@ export class IndexComponent implements OnInit {
     
   }
 
-  abrirEditar(){
+  abrirEditar(id: string){
+    this.idEnv = id;
     this.activarEditar = true;
+
   }
 }

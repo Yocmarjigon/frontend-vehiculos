@@ -16,7 +16,7 @@
       <td>{{ usuario.email }}</td>
       <td>{{usuario.telefono}}</td>
       <td>{{usuario.rol}}</td>
-      <td class="acciones"><button class="btn-acciones btn-eliminar"  (click)="eliminar(usuario)">Eliminar</button><button class="btn-acciones btn-editar" *ngIf="usuario.id_usuarios == decodeJwt() " >Editar</button><button class="btn-acciones btn-detalles" >Detalles</button></td>
+      <td class="acciones"><button class="btn-acciones btn-eliminar"  (click)="eliminar(usuario)">Eliminar</button><button class="btn-acciones btn-editar" *ngIf="usuario.id_usuarios == decodeJwt() " >Editar</button></td>
     </tr>
   </tbody>
 </table>

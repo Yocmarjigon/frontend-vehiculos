@@ -14,13 +14,15 @@ export class IndexComponent implements OnInit {
   nombreUsuario = '';
   email = '';
   telefono = ''
+  cedula = ''
   rol = ''
+
 
 
   constructor(
     private activarServices: ActivarPanelService,
     private conductorServices: ConductorService,
-    private usuarioServices: UsuariosService
+    private usuarioServices: UsuariosService,
   ) {}
 
   ngOnInit(): void {
@@ -68,9 +70,10 @@ export class IndexComponent implements OnInit {
   }
   mostrarConductor() {
     const id = this.decodeJwt().id;
-    this.conductorServices.mostrarConductor(id).subscribe((valor) => {
-      console.log(valor)
-      valor
-    });
+    this.conductorServices.mostrarConductor(id).subscribe((valor)  =>{
+      this.nombreUsuario = valor.nombre_apellido!;
+      this.email = valor.email!;
+      this.telefono = valor.cedula!;
+    })
   }
 }

@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Conductor } from '../models/Conductor';
+import { env } from '../environment/env';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConductorService {
-  url = 'http://localhost:3006';
+  url = env.endpoint;
   
   constructor(private http: HttpClient) { }
 
