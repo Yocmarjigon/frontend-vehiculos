@@ -47,6 +47,8 @@ export class CrearComponent implements OnInit {
       error: (error: HttpErrorResponse)=>{this.toastr.error(`${error}`, 'ERROR')}
     })
   }
+
+  
   cerrarPanel() {
     this.activarServices.$activarPanelCrear.emit(false);
   }
