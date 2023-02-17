@@ -60,9 +60,15 @@ label{
     color: #fff;
     display: flex;
     flex-direction: column;
+    width: auto;
+}
+
+.label-input{
+    width: 40%;
+    margin: 15px 5px;
 }
 .inputs-fechas{
-    width: 150px;
+    width: 200px;
 }
 
 .container-inputs{
@@ -76,11 +82,11 @@ input{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #fff;
-    width: 40%;
+    width: auto;
     height: 30px;
     outline: none;
     color: #fff;
-    margin: 15px 5px;
+    
 
   
 }

@@ -1,17 +1,80 @@
 <div class="container-register">
   <div class="panel-iniciar">
-    <form autocomplete="off">
+    <form [formGroup]="fgValidacion" autocomplete="off" errorTailor>
       <h3>Registrarse</h3>
-      <input [(ngModel)]="nombre_apellido" [ngModelOptions]="{standalone: true}"  type="text" placeholder="Nombre Apellido" />
-      <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" placeholder="Email" />
-      <input [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}" type="text" placeholder="Teléfono" />
-      <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Password" />
-      <input [(ngModel)]="repetirPassword" [ngModelOptions]="{standalone: true}" type="password" placeholder="Repetir password" />
-      
-      <button (click)="creaUsuario()" class="btn-registrarse">REGISTRARSE</button>
+      <label for="">
+        <input
+          formControlName="nombre_apellido"
+          type="text"
+          placeholder="Nombre Apellido"
+        />
+      </label>
+      <label for="">
+        <input formControlName="email" type="email" placeholder="Email" />
+      </label>
+      <label for="">
+        <input
+          formControlName="telefono"
+          type="text"
+          placeholder="Teléfono"
+          [controlErrorsTpl]="errorNumeros"
+        />
+      </label>
+      <label for="">
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          [controlErrorsTpl]="errorPassword"
+        />
+      </label>
+      <label for="">
+        <input
+          formControlName="repetirPassword"
+          type="password"
+          placeholder="Repetir password"
+        />
+      </label>
+
+      <button (click)="creaUsuario()" class="btn-registrarse">
+        REGISTRARSE
+      </button>
     </form>
   </div>
   <a class="btn-register" routerLink="/iniciar-sesion">Volver</a>
-  
 </div>
+
+
+
+
+
+<ng-template let-error let-text="text" #errorPassword>
+  <div *ngIf="error?.minlength" class="errorPassword">
+    <p>
+      No cumples con los caracteres minimos, actual:
+      <span class="valor-actual-error">{{ error.minlength.actualLength }}</span>.
+       requeridos: <span class="valor-actual-error">{{ error.minlength.requiredLength }}</span>.
+    </p>
+  </div>
+  <div *ngIf="error?.pattern" class="errorPassword">
+    <p>
+      Se requiere minimo un caracter en maysculas y uno en minusculas Actual:
+      <span class="valor-actual-error">{{ error?.pattern.actualValue }}</span>. 
+    </p>
+  </div>
+</ng-template>
+<ng-template let-error let-text="text" #errorNumeros>
+  <div *ngIf="error?.minlength" class="errorPassword">
+    <p>
+      No cumples con los caracteres minimos, actual:
+      <span class="valor-actual-error">{{ error.minlength.actualLength }}</span>.
+       requeridos: <span class="valor-actual-error">{{ error.minlength.requiredLength }}</span>.
+    </p>
+  </div>
+  <div *ngIf="error?.pattern" class="errorPassword">
+    <p>Solo se admiten numeros, actual: <span class="valor-actual-error">{{ error.pattern.actualValue }}</span>.</p>
+  </div>
+</ng-template>
+
+
 <app-via></app-via>

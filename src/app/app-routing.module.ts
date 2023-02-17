@@ -13,6 +13,7 @@ const routes: Routes =
   {path: 'usuario', loadChildren: ()=> import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule), canActivate: [AutenticacionGuard]},
   {path: 'conductor', loadChildren: ()=> import('./modules/conductor/conductor.module').then(m => m.ConductorModule),  canActivate: [AutenticacionGuard]},
   {path: 'gerente', loadChildren: ()=> import('./modules/gerente/gerente.module').then(m => m.GerenteModule),  canActivate: [AutenticacionGuard]},
+  {path: 'vehiculo', loadChildren: ()=> import('./modules/vehiculos/vehiculos.module').then(m=> m.VehiculosModule), canActivate: [AutenticacionGuard]},
   {path: 'detalles-usuario', loadChildren: ()=> import('./plantilla/panel-usuario/panel-usuario.module').then(m => m.PanelUsuarioModule),  canActivate: [AutenticacionGuard]},
   {path: '**', component: ErrorPaginaComponent}
 ];

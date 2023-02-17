@@ -1,0 +1,34 @@
+<div #asCrearConductor class="container-crear-conductor">
+  <div class="panel-iniciar">
+    <form
+      autocomplete="off"
+      [formGroup]="fgValidacion"
+      enctype="multipart/form-data"
+    >
+      <h3>Editar usuario</h3>
+      <label for="">
+        <input
+          formControlName="nombre_apellido"
+          type="text"
+          placeholder="Nombre Apellido"
+        />
+      </label>
+      <label for="">
+        <input
+          formControlName="email"
+          type="text"
+          placeholder="Email"
+        />
+      </label>
+      <label for="">
+        <input formControlName="telefono" type="email" placeholder="Telefono" />
+      </label>
+      <button class="btn-registrarse" (click)="actualizandoUsuario()">
+        EDITAR
+      </button>
+    </form>
+  </div>
+  <div>
+    <button class="btn-cerrar" (click)="cerrarPanel()">Cerrar</button>
+  </div>
+</div>

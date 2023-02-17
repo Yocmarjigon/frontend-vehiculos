@@ -15,6 +15,8 @@ export class GerenteService {
   mostrarGerente():Observable<Gerente[]>{
     return this.http.get<Gerente[]>(`${this.url}/gerente`)
   }
-  
+  crearGerente(gerente: Gerente):Observable<Gerente>{
+    return this.http.post<Gerente>(`${this.url}/gerente`, gerente)
+  }
 
 }

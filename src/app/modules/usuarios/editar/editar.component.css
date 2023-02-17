@@ -1,10 +1,17 @@
-.container-register{
+.container-crear-conductor{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.243);
 }
+
+
 
 .logo{
     width: 180px;
@@ -16,7 +23,7 @@ h1{
 }
 .panel-iniciar{
     background-color: #262626;
-    width: 400px;
+    width: 700px;
     min-height: 350px;
     margin-top: 80px ;
     padding: 20px;
@@ -28,9 +35,9 @@ h1{
 }
 form{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
 }
 
 h3{
@@ -39,22 +46,55 @@ h3{
     margin-bottom: 30px;
     
 }
- 
+
 .panel-iniciar > h3{
     color: #fff;
+}
+
+.container-fechas{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+label{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.inputs-fechas{
+    width: 150px;
+}
+
+.container-inputs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 }
 
 input{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #fff;
-    width: 100%;
+    width: 40%;
     height: 30px;
     outline: none;
     color: #fff;
-   
+    margin: 15px 5px;
+
   
 }
+
+
+
+select{
+    width: 100%;
+    height: 30px;
+    background-color: #262626;
+    color: #fff;
+
+}
+
 .input-tipo{
     width: 100%;
     color: #fff;
@@ -86,4 +126,28 @@ input{
 .btn-iniciar:hover{
     background-color: #f8c87b;
 
+}
+
+.btn-cerrar{
+    background-color: #3B6CFF;
+    margin-top: 10px;
+    width: 80px;
+    height: 30px;
+    font-weight: 800;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor:pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.477);
+}
+.btn-cerrar:hover{
+    background-color: #6f93fe;
+}
+
+.panel-iniciar{
+    width: 500px;
+}
+
+input{
+    width: 100%;
 }

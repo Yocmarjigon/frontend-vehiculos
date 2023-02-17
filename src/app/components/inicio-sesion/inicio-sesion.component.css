@@ -18,8 +18,8 @@ h1{
 }
 .panel-iniciar{
     background-color: #262626;
-    width: 400px;
-    height: 300px;
+    min-width: 400px;
+    min-height: 300px;
     padding: 20px;
     margin-top: 20px;
     display: flex;
@@ -37,6 +37,14 @@ h3{
 
 .panel-iniciar > h3{
     color: #fff;
+}
+
+.form-submitted input.ng-invalid,
+.form-submitted select.ng-invalid {
+  border-color: #dc3545;
+}
+.container-inp{
+    width: 100%;
 }
 
 input{

@@ -1,0 +1,65 @@
+<div #asCrearConductor class="container-crear-conductor">
+    <div class="panel-iniciar">
+      <form
+        autocomplete="off"
+        [formGroup]="fgValidacion"
+        enctype="multipart/form-data"
+        errorTailor
+      >
+        <h3>Crear Gerente</h3>
+        
+            <label for="">
+                <input
+                  formControlName="nombre_apellido"
+                  type="text"
+                  placeholder="Nombre Apellido"
+                />
+              </label>
+              <label for="">
+                <input formControlName="email" type="email" placeholder="Email" />
+              </label>
+              <label for="">
+                <input
+                  formControlName="telefono"
+                  type="text"
+                  placeholder="Teléfono"
+                 
+                />
+              </label>
+              <label for="">
+                <input
+                  formControlName="password"
+                  type="password"
+                  placeholder="Password"
+                  [controlErrorsTpl]="errorPassword"
+                />
+              </label>
+              <label for="">
+                <input
+                  formControlName="repetirPassword"
+                  type="password"
+                  placeholder="Repetir password"
+                />
+              </label>
+
+        <button class="btn-registrarse" (click)="crearGerente()">CREAR</button>
+      </form>
+    </div>
+    <button class="btn-cerrar" (click)="cerrarPanel()">Cerrar</button>
+  </div>
+  
+  
+  <ng-template let-error let-text="text" #errorPassword>
+    <div *ngIf="error?.minlength" class="errorPassword">
+      <p>
+        No cumples con los caracteres minimos, actual:
+        <span class="valor-actual-error">{{ error.minlength.actualLength }}</span>.
+         requeridos: <span class="valor-actual-error">{{ error.minlength.requiredLength }}</span>.
+      </p>
+    </div>
+    <div *ngIf="error?.pattern" class="errorPassword">
+      <p>
+        Se requiere minimo un caracter en maysculas y uno en minusculas Actual:
+        <span class="valor-actual-error">{{ error?.pattern.actualValue }}</span>. 
+      </p>
+    </div>

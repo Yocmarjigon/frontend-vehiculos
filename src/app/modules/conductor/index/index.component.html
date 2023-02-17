@@ -33,7 +33,7 @@
         <td>{{ conductor.licencia }}</td>
         <td>{{ conductor.licencia_exp }}</td>
         <td>{{ conductor.licencia_venc }}</td>
-        <td *ngIf="conductor.estado == 0">vencida</td>
+        <td *ngIf="conductor.estado == 0" style="border-radius: 5px; background-color: #F33A36; color:#fff; font-weight: 700;">vencida</td>
         <td *ngIf="conductor.estado == 1">activa</td>
         <td>{{ conductor.categoria }}</td>
         <td class="acciones">

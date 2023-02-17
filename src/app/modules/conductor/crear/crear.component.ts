@@ -14,6 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 import { Route } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear',
@@ -21,22 +22,22 @@ import { Route } from '@angular/router';
   styleUrls: ['./crear.component.css'],
 })
 export class CrearComponent implements OnInit {
-  id_usuarios = '';
-  cedula = '';
-  email = '';
-  nombre_apellido = '';
-  licencia = '';
-  categoria = '';
-  pdf_licencia!:File;
-  licencia_exp = '';
-  licencia_venc = '';
-  password = '';
-  passwordRepetida = ''
-  
+  fgValidacion: FormGroup = this.fg.group({
+    id_usuarios: [''],
+    cedula: ['', [Validators.required]],
+    email: ['',  [Validators.required, Validators.email]],
+    nombre_apellido: ['',  [Validators.required]],
+    licencia: ['',  [Validators.required]],
+    categoria: ['',  [Validators.required]],
+    pdf_licencia: ['', [Validators.required]],
+    licencia_exp: ['',  [Validators.required]],
+    licencia_venc: ['',  [Validators.required]],
+    password: ['',  [Validators.required, Validators.minLength(8)]],
+    passwordRepetida: ['',  [Validators.required]],
+  });
 
   usuarios: Usuario[] = [];
-  fileTamp:any;
-  
+  fileTamp: any;
 
   @ViewChild('asCrearConductor', { static: true }) activar!: ElementRef;
 
@@ -44,85 +45,79 @@ export class CrearComponent implements OnInit {
     private activarServices: ActivarPanelService,
     private conductorServices: ConductorService,
     private toastr: ToastrService,
+    private fg: FormBuilder,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.activarServices.$enviarId.subscribe(id => this.id_usuarios = id)
-    
-
-  }
+  ngOnInit(): void {}
 
   decodeJwt() {
     try {
       const token = localStorage.getItem('token');
       const tokenDecode: any = jwtDecode(token!);
-      const id = tokenDecode.id
-      return id
+      const id = tokenDecode.id;
+      return id;
     } catch (error) {
-      console.log('Error decode jwt' +error);
+      console.log('Error decode jwt' + error);
     }
   }
-  capturaPdf($event:any){
-   
-
-    const [file] = $event.target.files
-    this.fileTamp ={
+  capturaPdf($event: any) {
+    const [file] = $event.target.files;
+    this.fileTamp = {
       fileRaw: file,
-      fileName: file.name
-    }
+      fileName: file.name,
+    };
   }
 
   crearConductor() {
-
-    
-    console.log(this.cedula,
-    this.nombre_apellido ,
-    this.licencia ,
-    this.licencia_exp, 
-    this.licencia_venc,);
-    const body = new FormData()
-    console.log()
-    
+    const body = new FormData();
 
     if (
-      this.cedula == '' ||
-      this.nombre_apellido == '' ||
-      this.licencia == '' ||
-      this.licencia_exp == '' ||
-      this.licencia_venc == '' 
+      this.fgValidacion.controls['cedula'].value == '' ||
+      this.fgValidacion.controls['nombre_apellido'].value == '' ||
+      this.fgValidacion.controls['licencia'].value == '' ||
+      this.fgValidacion.controls['licencia_exp'].value == '' ||
+      this.fgValidacion.controls['licencia_venc'].value == ''
     ) {
       this.toastr.error('Todos los campos son obligatorios', 'ERROR');
       return;
     }
-    if(this.password != this.passwordRepetida){
+    if (
+      this.fgValidacion.controls['password'].value !=
+      this.fgValidacion.controls['passwordRepetida'].value
+    ) {
       this.toastr.error('Las passwords no son iguales', 'ERROR');
       return;
     }
 
+    const licencia_venc = new Date(
+      this.fgValidacion.controls['licencia_venc'].value
+    );
+    const licencia_exp = new Date(
+      this.fgValidacion.controls['licencia_exp'].value
+    );
 
-    const licencia_venc = new Date(this.licencia_venc);
-    const licencia_exp = new Date(this.licencia_exp);
+    const conductor = new Conductor();
+    conductor.id_usuarios = this.decodeJwt(),
+    conductor.cedula = this.fgValidacion.controls['cedula'].value;
+    conductor.nombre_apellido = this.fgValidacion.controls['nombre_apellido'].value;
+    conductor.email = this.fgValidacion.controls['email'].value;
+    conductor.licencia = this.fgValidacion.controls['licencia'].value;
+    conductor.categoria = this.fgValidacion.controls['categoria'].value;
+    conductor.licencia_exp = licencia_exp;
+    conductor.licencia_venc = licencia_venc;
+    conductor.password = this.fgValidacion.controls['password'].value;
 
-    const conductor: Conductor = {
-      id_usuarios: this.decodeJwt(),
-      cedula: this.cedula,
-      email: this.email,
-      nombre_apellido: this.nombre_apellido,
-      password: this.password,
-      licencia: this.licencia,
-      licencia_exp: licencia_exp,
-      licencia_venc: licencia_venc,
-      categoria: this.categoria,
-    };
-    body.append('licencia_pdf', this.fileTamp.fileRaw, this.fileTamp.fileName)
-    console.log(this.fileTamp)
+    body.append('licencia_pdf', this.fileTamp.fileRaw, this.fileTamp.fileName);
+    console.log(this.fileTamp);
 
-    this.conductorServices.enviarpdf(body).subscribe(res => console.log(res))
-    
+    this.conductorServices.enviarpdf(body).subscribe((res) => console.log(res));
+
     this.conductorServices.crearConductor(conductor).subscribe({
       next: () => {
-        this.toastr.success('Conductor creado correctamente', 'CORRECTO'); window.location.reload()},
+        this.toastr.success('Conductor creado correctamente', 'CORRECTO');
+        window.location.reload();
+      },
       error: (error: HttpErrorResponse) => {
         this.toastr.error(`${error}`, 'ERROR');
       },

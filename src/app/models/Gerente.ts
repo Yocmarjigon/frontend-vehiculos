@@ -1,4 +1,4 @@
-export interface Gerente {
+export class Gerente {
     id_gerente?: string;
     nombre_apellido?: string;
     email?: string;

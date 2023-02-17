@@ -1,36 +1,31 @@
 <div #asCrearConductor class="container-crear-conductor">
     <div class="panel-iniciar">
-      <form autocomplete="off" enctype="multipart/form-data">
+      <form autocomplete="off" [formGroup]="fgValidacion" enctype="multipart/form-data">
         <h3>Editar conductor</h3>
         <div class="container-inputs">
         <input
-          [(ngModel)]="cedula"
-          [ngModelOptions]="{ standalone: true }"
+          formControlName="cedula"
           type="text"
           placeholder="Cedula"
         />
         <input
-          [(ngModel)]="nombre_apellido"
-          [ngModelOptions]="{ standalone: true }"
+          formControlName="nombre_apellido"
           type="text"
           placeholder="Nombre apellido"
         />
         <input
-          [(ngModel)]="email"
-          [ngModelOptions]="{ standalone: true }"
+          formControlName="email"
           type="email"
           placeholder="Email"
         />
         <input
-          [(ngModel)]="licencia"
-          [ngModelOptions]="{ standalone: true }"
+          formControlName="licencia"
           type="text"
           placeholder="N. Licencia"
         />
         <input
           type="text"
-          [(ngModel)]="categoria"
-          [ngModelOptions]="{ standalone: true }"
+          formControlName="categoria"
           placeholder="Categoria"
         />
         <input
@@ -43,8 +38,8 @@
           <label for="fecha_exp">
             Fecha Exp
             <input
-              [(ngModel)]="licencia_exp"
-              [ngModelOptions]="{ standalone: true }"
+              formControlName="licencia_exp"
+  
               type="date"
               id="fecha_exp"
               class="inputs-fechas"
@@ -54,26 +49,14 @@
           <label for="fecha_venc">
             Fecha Venc
             <input
-              [(ngModel)]="licencia_venc"
-              [ngModelOptions]="{ standalone: true }"
+              formControlName="licencia_venc"
+  
               type="date"
               id="fecha_venc"
               class="inputs-fechas"
             />
           </label>
         </div>
-        <input
-          [(ngModel)]="password"
-          [ngModelOptions]="{ standalone: true }"
-          type="text"
-          placeholder="Password"
-        />
-        <input
-          [(ngModel)]="passwordRepetida"
-          [ngModelOptions]="{ standalone: true }"
-          type="text"
-          placeholder="Repetir password"
-        />
       </div>
         <button class="btn-registrarse" (click)="actualizandoConductor()">CREAR</button>
       </form>

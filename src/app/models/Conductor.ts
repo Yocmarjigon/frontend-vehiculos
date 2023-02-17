@@ -1,4 +1,4 @@
-export interface Conductor {
+export class Conductor {
     id_conductor?: number;
     id_usuarios?: string;
     cedula?: string;
@@ -10,6 +10,7 @@ export interface Conductor {
     licencia_exp?: Date;
     licencia_venc?: Date;
     estado?: number[];
-    categoria?: string
+    categoria?: string;
+    rol?: string;
 
 }

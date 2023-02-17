@@ -15,6 +15,8 @@ import Swal from 'sweetalert2'
 })
 export class IndexComponent implements OnInit {
   usuarios: Usuario[] = [];
+  idEnv:any
+  activarEditar: boolean = false;
 
   constructor(
     private usuariosServices: UsuariosService,
@@ -26,7 +28,10 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
    this.usuariosServices.obtenerUsuarios().subscribe(datos => this.usuarios = datos) 
+   
     this.activarPanel.$panelNav.emit(true)
+    this.activarPanel.$activarPanelEditar.subscribe(
+      (valor) => {this.activarEditar = valor })
   }
 
   eliminar(usuario: Usuario){
@@ -70,5 +75,11 @@ export class IndexComponent implements OnInit {
     } catch (error) {
       console.log('Error decode jwt' +error);
     }
+  }
+  
+  abrirEditar(id:string){
+    this.idEnv = id;
+    this.activarEditar = true;
+
   }
 }

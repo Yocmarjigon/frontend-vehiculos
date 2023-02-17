@@ -10,7 +10,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { EditarComponent } from './editar/editar.component';
 import { FiltrarPipe } from 'src/app/pipes/filtrar.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { provideErrorTailorConfig, errorTailorImports } from '@ngneat/error-tailor';
 
 @NgModule({
   declarations: [
@@ -21,13 +21,28 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FiltrarPipe
 
   ],
+
+  providers: [
+    provideErrorTailorConfig({
+      errors: {
+        useValue: {
+          required: 'El campo es requerido',
+          minlength: ({ requiredLength, actualLength }) =>
+            `Expect ${requiredLength} but got ${actualLength}`,
+          invalidAddress: (error) => `Address isn't valid`,
+        },
+      },
+    }),
+  ],
+
   imports: [
     CommonModule,
     ConductorRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    errorTailorImports
     
   ]
 })
