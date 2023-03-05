@@ -9,7 +9,7 @@ export class Conductor {
     pdf_licencia?:string;
     licencia_exp?: Date;
     licencia_venc?: Date;
-    estado?: number[];
+    estado?: number;
     categoria?: string;
     rol?: string;
 

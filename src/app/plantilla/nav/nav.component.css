@@ -48,6 +48,12 @@ ul{
     list-style: none;
     height: 100%;
 }
+.panel-btn-admin{
+    
+    display: flex;
+    list-style: none;
+    height: 100%;
+}
 
 
 li{

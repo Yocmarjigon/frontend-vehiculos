@@ -1,0 +1,18 @@
+<div class="container-estado">
+  <div class="panel-estado">
+    <h3>Estado conductor</h3>
+    <div #asAnimEstado class="anima-estado">
+      <div #asEstadoColor class="estado">
+        <p *ngIf="estado === 0" class="vencida">Vencida</p>
+        <p *ngIf="estado === 1" class="activa">Activa</p>
+      </div>
+    </div>
+    <div class="datos">
+      <p>{{ email }}</p>
+      <ul>
+        <li>Cedula: {{ cedula }}</li>
+        <li>Nombre Apellido: {{ nombre_apellido }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

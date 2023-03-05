@@ -1,0 +1,76 @@
+.container-estado{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    height: 360px;
+}
+
+.panel-estado{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul{
+    list-style: none;
+    text-align: center;
+}
+
+.estado{
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    margin: 10px;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: estadoAnim;
+}
+
+.anima-estado{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    position: relative;
+    
+}
+
+.vencida, .activa{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    
+}
+
+
+
+/*animacion estado*/
+
+@keyframes estadoAnim {
+    25%{
+        margin: 15px;
+    }
+    
+    50% {
+        margin: 10px;
+    }
+
+    75%{
+        margin: 15px;
+    }
+    100% {
+        margin: 10px;
+    }
+}
