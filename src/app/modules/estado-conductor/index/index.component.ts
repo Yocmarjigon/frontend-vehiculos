@@ -55,8 +55,8 @@ export class IndexComponent implements OnInit {
     const estadoColor = this.estadoColor.nativeElement
     const animEstado = this.animEstado.nativeElement
     if(this.estado === 0){
-      this.renderer.setStyle(estadoColor, 'background-color','#FF3535')
-      this.renderer.setStyle(animEstado, 'background-color', '#DB2E2E')
+      this.renderer.addClass(estadoColor ,'est-vencida')
+      this.renderer.addClass(animEstado, 'anima-estado-color-vencida')
     }
     if(this.estado === 1){
       this.renderer.setStyle(estadoColor, 'background-color','#28BA56')

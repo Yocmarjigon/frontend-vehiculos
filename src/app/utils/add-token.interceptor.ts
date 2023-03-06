@@ -30,7 +30,7 @@ export class AddTokenInterceptor implements HttpInterceptor {
           this.router.navigate(['/iniciar-sesion'])
         }
 
-        return throwError(() => new Error())
+        return throwError(error)
       })
       )
   }

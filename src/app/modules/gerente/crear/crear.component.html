@@ -23,7 +23,7 @@
                   formControlName="telefono"
                   type="text"
                   placeholder="Teléfono"
-                 
+
                 />
               </label>
               <label for="">
@@ -54,7 +54,7 @@
       <p>
         No cumples con los caracteres minimos, actual:
         <span class="valor-actual-error">{{ error.minlength.actualLength }}</span>.
-         requeridos: <span class="valor-actual-error">{{ error.minlength.requiredLength }}</span>.
+        requeridos: <span class="valor-actual-error">{{ error.minlength.requiredLength }}</span>.
       </p>
     </div>
     <div *ngIf="error?.pattern" class="errorPassword">

@@ -28,9 +28,7 @@ ul{
     height: 110px;
     border-radius: 100%;
     margin: 10px;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-name: estadoAnim;
+    
 }
 
 .anima-estado{
@@ -40,6 +38,13 @@ ul{
     align-items: center;
     border-radius: 100px;
     position: relative;
+    animation:estadoAnim 3s linear 0.5s infinite both running;
+    
+    
+}
+
+.anima-estado-color-vencida{
+    background-color: #DB2E2E;
     
 }
 
@@ -53,24 +58,28 @@ ul{
     font-weight: 600;
     
 }
+.est-activa {
+
+}
+
+.est-vencida{
+    background-color: #FF3535;
+}
 
 
 
 /*animacion estado*/
 
 @keyframes estadoAnim {
-    25%{
-        margin: 15px;
+    from{
+        padding: 3px;
+        box-shadow: 3px 3px 10px #DB2E2E, -3px -3px 10px #DB2E2E;
     }
     
-    50% {
-        margin: 10px;
+    to{
+        padding: 6px;
+        box-shadow: 3px 3px 20px #DB2E2E, -3px -3px 20px #DB2E2E;
     }
 
-    75%{
-        margin: 15px;
-    }
-    100% {
-        margin: 10px;
-    }
+   
 }
