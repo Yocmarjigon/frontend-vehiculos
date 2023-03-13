@@ -6,6 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CrearComponent } from './crear/crear.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { CrearComponent } from './crear/crear.component';
     VehiculosRoutingModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class VehiculosModule { }

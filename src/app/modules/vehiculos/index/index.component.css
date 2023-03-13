@@ -1,0 +1,52 @@
+.container-conductor{
+    padding: 40px 20px;
+}
+
+
+.panel-opciones{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginacion ::ng-deep .ngx-pagination .current {
+    background-color: #F9A825;
+    color: #fff;
+    
+}
+
+
+
+.panel-btn{
+    align-self: flex-start;   
+}
+
+.tabla{
+    margin-top: 0px;
+    min-width: 1120px;
+    max-height: 400px;
+    border-collapse: collapse;
+    
+
+    
+}
+
+
+.filter-input{
+    width: 700px;
+    height: 30px;
+    border: none;
+    border-bottom: 0.5px solid #262626;
+    outline: none;
+}
+
+.paginacion ::ng-deep .ngx-pagination  {
+    border: 1px solid #262626;
+    color: #F9A825;
+    margin: 0px;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    
+
+}

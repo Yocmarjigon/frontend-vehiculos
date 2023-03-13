@@ -58,7 +58,7 @@ export class IndexComponent {
           this.router.navigate(['/iniciar-sesion']);
       },
       error: (error: HttpErrorResponse) => {
-        this.toastr.error(`${error}`), console.log(error);
+        this.toastr.error(`${error.error.msg}`), console.log(error);
       },
     });
   }

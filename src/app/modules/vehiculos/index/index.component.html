@@ -1,7 +1,7 @@
 <div class="container-conductor">
     <div class="panel-opciones">
       <div class="panel-btn">
-        <button #asButton class="btn-crear" >Crear</button>
+        <button #asButton class="btn-crear" (click)="abrirCrear()">Crear</button>
       </div>
       <div>
         <input class="filter-input" placeholder="Filtrar:"  autocomplete="on" type="text">
@@ -10,13 +10,11 @@
     <table class="tabla">
       <thead>
         <tr>
-          <th>Cedula</th>
-          <th>Nombre apellido</th>
-          <th>Licencia</th>
-          <th>Licencia Exp</th>
-          <th>Licencia Venc</th>
-          <th>Estado</th>
-          <th>Categoria</th>
+          <th>Placa</th>
+          <th>Sede</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Color</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -24,17 +22,14 @@
         <tr
           class="tabla-contenido"
           *ngFor="
-            let conductor of vehiculos
+            let vehiculo of vehiculos
               | paginate : { itemsPerPage: 8, currentPage: p } |  filter:searchText"  
         >
-          <td>{{ conductor.cedula }}</td>
-          <td>{{ conductor.nombre_apellido }}</td>
-          <td>{{ conductor.licencia }}</td>
-          <td>{{ conductor.licencia_exp }}</td>
-          <td>{{ conductor.licencia_venc }}</td>
-          <td *ngIf="conductor.estado == 0" style="border-radius: 5px; background-color: #F33A36; color:#fff; font-weight: 700;">vencida</td>
-          <td *ngIf="conductor.estado == 1">activa</td>
-          <td>{{ conductor.categoria }}</td>
+          <td>{{ vehiculo.placa }}</td>
+          <td>{{ vehiculo.sede }}</td>
+          <td>{{ vehiculo.marca }}</td>
+          <td>{{ vehiculo.modelo }}</td>
+          <td>{{ vehiculo.color }}</td>
           <td class="acciones">
             <button class="btn-acciones btn-eliminar">Eliminar</button
             ><button class="btn-acciones btn-editar">Editar</button
@@ -53,12 +48,7 @@
       </tbody>
     </table>
   </div>
-  <!-- <div *ngIf="activarCrear == true">
+   <div *ngIf="activarCrear == true">
     <app-crear></app-crear>
   </div>
-  <div *ngIf="activarDetalles == true">
-    <app-detalles [idConductor]="idEnv"></app-detalles>
-  </div>
-  <div *ngIf="activarEditar == true">
-    <app-editar [idConductor]="idEnv"></app-editar>
-  </div> -->
+ 

@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    height: 60px;
+    height: 50px;
     position: relative;
     z-index: 100;
     width: 100%;
@@ -27,8 +27,8 @@
 }
 
 .logo{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .panel-final{
@@ -57,7 +57,7 @@ ul{
 
 
 li{
-   width: 110px; 
+   width: 90px; 
    height: 100%;
    text-align: center;
 }
@@ -68,6 +68,7 @@ li a{
     text-decoration: none;
     align-items: center;
     justify-content: center;
+    font-size: .8em;
     width: 100%;
     height: 100%;
     

@@ -1,1 +1,113 @@
-<p>crear works!</p>
+<div #asCrearConductor class="container-crear-conductor">
+    <div class="panel-iniciar">
+      <form
+        [formGroup]="fgValidacion"
+        autocomplete="off"
+        
+        enctype="multipart/form-data"
+        errorTailor
+      >
+        <h3>Crear Vehículo</h3>
+        
+            <label for="">
+                <input
+                  formControlName="placa"
+                  type="text"
+                  placeholder="Placa"
+                />
+              </label>
+              <label for="">
+                <input formControlName="marca" type="email" placeholder="Marca" />
+              </label>
+              <label for="">
+                <input
+                  formControlName="modelo"
+                  type="text"
+                  placeholder="Modelo"
+
+                />
+              </label>
+              <label for="">
+                <input
+                  formControlName="color"
+                  type="text"
+                  placeholder="Color"
+                  
+                />
+              </label>
+              <label for="">
+                Estado
+                <select
+                  formControlName="estado"
+                  placeholder="Repetir password"
+                >
+                <option value="1">Circulación</option>
+                <option value="0">Parado</option>
+                </select>
+              </label>
+              <label for="">
+                Año del vehículo
+                <select
+                  formControlName="año_vehiculo"
+                  type="datetime">
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                  <option value="2016">2016</option>
+                  <option value="2015">2015</option>
+                  <option value="2014">2014</option>
+                  <option value="2013">2013</option>
+                  <option value="2012">2012</option>
+                  <option value="2011">2011</option>
+                  <option value="2010">2010</option>
+                  </select>
+              </label>
+              <label for="">
+                Año de compra 
+                <input
+                  formControlName="año_compra"
+                  type="date"
+                  
+                  
+                />
+              </label>
+              <label for="">
+                <textarea formControlName="descripcion" placeholder="Descripción" rows="20" cols="20" ></textarea>
+              </label>
+              <label for="">
+                <input formControlName="impuestos" placeholder="Impuestos por HP">
+              </label>
+              <label for="">
+                <input formControlName="sede" placeholder="Sede">
+              </label>
+              <label for="">
+                <input formControlName="numero_chazis" placeholder="Numero chasis" >
+              </label>
+              <label for="">
+                <input formControlName="numero_motor" placeholder="Numero motor">
+              </label>
+
+        <button class="btn-registrarse" (click)="crearVehiculo()">CREAR</button>
+      </form>
+    </div>
+    <button class="btn-cerrar" (click)="cerrarPanel()">Cerrar</button>
+  </div>
+  
+  
+  <ng-template let-error let-text="text" #errorPassword>
+    <div *ngIf="error?.minlength" class="errorPassword">
+      <p>
+        No cumples con los caracteres mínimos, actual:
+        <span class="valor-actual-error">{{ error.minlength.actualLength }}</span>.
+        requeridos: <span class="valor-actual-error">{{ error.minlength.requiredLength }}</span>.
+      </p>
+    </div>
+    <div *ngIf="error?.pattern" class="errorPassword">
+      <p>
+        Se requiere mínimo un carácter en mayúsculas y uno en minúsculas Actual:
+        <span class="valor-actual-error">{{ error?.pattern.actualValue }}</span>. 
+      </p>
+    </div>

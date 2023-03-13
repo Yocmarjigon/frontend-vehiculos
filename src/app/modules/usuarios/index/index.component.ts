@@ -39,7 +39,6 @@ export class IndexComponent implements OnInit {
     Swal.fire({
       title: 'Deseas eliminar este usuario?',
       showDenyButton: true,
-      showCancelButton: true,
       confirmButtonText: 'Yes',
       denyButtonText: 'No',
       customClass: {
