@@ -21,6 +21,16 @@
 .panel-btn{
     align-self: flex-start;   
 }
+.btn-archivos-adjuntos{
+    display: flex;
+    
+}
+.btn-archivos-adjuntos img{
+    width: 30px;
+}
+.container-btn-archivos{
+    width: 50px;
+}
 
 .tabla{
     margin-top: 0px;

@@ -29,7 +29,7 @@
         <td>{{gerente.telefono}}</td>
         <td>{{gerente.rol}}</td>
           <td class="acciones">
-            <button class="btn-acciones btn-eliminar" (click)="eliminandoGerente(gerente)">Eliminar</button
+            <button class="btn-acciones btn-eliminar" (click)="eliminandoGerente(gerente.id_gerente)">Eliminar</button
             ><button class="btn-acciones btn-editar"(click)="abrirEditar(gerente.id_gerente)" >Editar</button
             ><button class="btn-acciones btn-detalles" (click)="abrirDetalles(gerente.id_gerente)">Detalles</button>
           </td>

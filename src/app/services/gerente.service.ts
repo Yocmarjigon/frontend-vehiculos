@@ -18,5 +18,7 @@ export class GerenteService {
   crearGerente(gerente: Gerente):Observable<Gerente>{
     return this.http.post<Gerente>(`${this.url}/gerente`, gerente)
   }
-
+  eliminandoGerente(id: string):Observable<Gerente>{
+    return this.http.delete<Gerente>(`${this.url}/gerente/${id}`)
+  }
 }

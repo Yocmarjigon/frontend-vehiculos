@@ -10,6 +10,7 @@
     <table class="tabla">
       <thead>
         <tr>
+          <th>Archivos</th>
           <th>Placa</th>
           <th>Sede</th>
           <th>Marca</th>
@@ -25,19 +26,21 @@
             let vehiculo of vehiculos
               | paginate : { itemsPerPage: 8, currentPage: p } |  filter:searchText"  
         >
+          <td class="container-btn-archivos"><button class="btn-archivos-adjuntos"><img src="../../../../assets/images/adjunto-archivo.png" alt="archivo"></button></td>
           <td>{{ vehiculo.placa }}</td>
           <td>{{ vehiculo.sede }}</td>
           <td>{{ vehiculo.marca }}</td>
           <td>{{ vehiculo.modelo }}</td>
           <td>{{ vehiculo.color }}</td>
           <td class="acciones">
-            <button class="btn-acciones btn-eliminar">Eliminar</button
+            <button class="btn-acciones btn-eliminar" (click)="eliminandoVehiculo(vehiculo.id_vehiculo)">Eliminar</button
             ><button class="btn-acciones btn-editar">Editar</button
             ><button class="btn-acciones btn-detalles">Detalles</button>
           </td>
         </tr>
-  
-        <pagination-controls
+      </tbody>
+    </table>
+    <pagination-controls
           class="paginacion"
           (pageChange)="p = $event"
           nextLabel="Next"
@@ -45,8 +48,6 @@
           screenReaderPaginationLabel="Pagination"
           [maxSize]= "10"
         ></pagination-controls>
-      </tbody>
-    </table>
   </div>
    <div *ngIf="activarCrear == true">
     <app-crear></app-crear>

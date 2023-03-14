@@ -18,4 +18,12 @@ export class VehiculoService {
   crearVehiculo(vehiculo: Vehiculo):Observable<Vehiculo>{
     return this.http.post<Vehiculo>(`${this.url}/vehiculo`, vehiculo)
   }
+
+  actualizarVehiculo(vehiculo: Vehiculo):Observable<Vehiculo>{
+    return this.http.put<Vehiculo>(`${this.url}/${vehiculo.id_vehiculo}`, vehiculo)
+  }
+
+  elimnarVehiculo(id: string):Observable<Vehiculo>{
+    return this.http.delete<Vehiculo>(`${this.url}/vehiculo/${id}`)
+  }
 }
